@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/item_anim"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:paddingBottom="10dp"
+  android:paddingTop="10dp">
+
+  <View
+    android:id="@+id/anim_remove"
+    android:layout_width="45dp"
+    android:layout_height="45dp"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:background="@android:drawable/ic_delete" />
+
+  <TextView
+    android:id="@+id/title_anim_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    tools:text="scaleX" />
+
+  <TextView
+    android:id="@+id/title_interpolator"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/title_anim_view"
+    android:layout_marginTop="6dp"
+    android:text="Interpolator : " />
+
+  <TextView
+    android:id="@+id/interpolator_name_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/title_interpolator"
+    android:layout_toRightOf="@+id/title_interpolator"
+    tools:text="Non" />
+
+  <TextView
+    android:id="@+id/title_duration"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/title_interpolator"
+    android:text="Duration : " />
+
+  <TextView
+    android:id="@+id/duration_name_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/title_duration"
+    android:layout_toRightOf="@+id/title_interpolator"
+    tools:text="Non" />
+
+  <TextView
+    android:id="@+id/title_paths"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/title_duration"
+    android:text="Paths : " />
+
+  <TextView
+    android:id="@+id/paths_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/title_paths"
+    android:layout_toLeftOf="@+id/anim_remove"
+    android:layout_toRightOf="@+id/title_interpolator"
+    android:maxLines="4"
+    android:maxWidth="10dp"
+    android:minLines="4"
+    tools:text="Non" />
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_alignParentBottom="true"
+    android:background="#d2d2d3" />
+
+</RelativeLayout>

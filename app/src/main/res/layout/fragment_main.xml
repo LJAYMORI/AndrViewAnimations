@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp">
 
     <com.example.jonguk.andrviewanimations.CheckedView
-        android:id="@+id/bounce_view"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/selector_heart" />
+      android:id="@+id/object_view"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
+      android:layout_gravity="center"
+      android:background="@drawable/selector_heart"
+      android:maxHeight="80dp"
+      android:maxWidth="80dp"
+      android:minHeight="20dp"
+      android:minWidth="20dp" />
+
+  </FrameLayout>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginTop="10dp"
+    android:background="#d2d2d3" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:gravity="center">
+
+    <TextView
+      android:id="@+id/public_interpolator"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+      android:gravity="center"
+      android:textSize="16sp"
+      android:textColor="#000"
+      tools:text="Interpolator : Accelerator"/>
+
+    <android.support.v4.widget.Space
+      android:layout_width="30dp"
+      android:layout_height="wrap_content" />
+
+    <TextView
+      android:id="@+id/public_duration"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+      android:gravity="center"
+      android:textColor="#000"
+      android:textSize="16sp"
+      tools:text="Duration : 200ms"/>
+
+  </LinearLayout>
+
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    />
+
+  <Button
+    android:id="@+id/play_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="play"/>
+
 </LinearLayout>
