@@ -2,20 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:orientation="vertical">
+  android:orientation="vertical"
+  android:paddingTop="8dp"
+  android:paddingBottom="8dp"
+  android:background="#eee">
 
   <ImageView
     android:id="@+id/add"
-    android:layout_width="70dp"
-    android:layout_height="70dp"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp"
+    android:layout_width="45dp"
+    android:layout_height="45dp"
     android:layout_gravity="center"
     android:background="@android:drawable/ic_menu_add" />
-
-  <View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="#d2d2d3" />
 
 </LinearLayout>
