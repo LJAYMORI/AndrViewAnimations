@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonguk.andrviewanimations.dialog.DurationDialog;
+import com.example.jonguk.andrviewanimations.dialog.InterpolatorDialog;
 import com.example.jonguk.andrviewanimations.list.ItemAdapter;
 import com.example.jonguk.andrviewanimations.list.ItemData;
 import com.example.jonguk.andrviewanimations.list.OnAnimItemClickListener;
@@ -24,8 +27,6 @@ import java.util.LinkedList;
  */
 public class MainFragment extends Fragment implements OnAnimItemClickListener {
 
-    public static final int KEY_ITEM_ID = 1234;
-
     private CheckedView mObjectView;
     private TextView mPublicInterpolatorView;
     private TextView mPublicDurationView;
@@ -33,6 +34,9 @@ public class MainFragment extends Fragment implements OnAnimItemClickListener {
     private Button mPlayView;
 
     private ItemAdapter mAdapter;
+
+    private InterpolatorDialog mInterpolatorDialog;
+    private DurationDialog mDurationDialog;
 
     @Nullable
     @Override
@@ -48,6 +52,18 @@ public class MainFragment extends Fragment implements OnAnimItemClickListener {
         mPublicDurationView = (TextView) view.findViewById(R.id.public_duration);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
+        // Public interpolator dialog
+        mInterpolatorDialog = new InterpolatorDialog(getContext(), type ->
+                mPublicInterpolatorView.setText(
+                        Html.fromHtml(String.format("Interpolator :<br><b>%s</b>", type.getName()))));
+        mPublicInterpolatorView.setOnClickListener(v -> mInterpolatorDialog.show());
+
+        // Public duration dialog
+        mDurationDialog = new DurationDialog(getContext(), value ->
+                mPublicDurationView.setText(
+                        Html.fromHtml(String.format("Duration :<br><b>%s ms</b>", value))));
+        mPublicDurationView.setOnClickListener(v -> mDurationDialog.show());
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new ItemAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
@@ -60,7 +76,7 @@ public class MainFragment extends Fragment implements OnAnimItemClickListener {
 
     @Override
     public void onClickAdd(int insertPosition) {
-        mAdapter.addItem(insertPosition, new ItemData(ItemData.Type.ITEM, "name", new LinkedList<Float>(), new AccelerateInterpolator(), 300));
+        mAdapter.addItem(insertPosition, new ItemData(ItemData.Type.ITEM, "name", new LinkedList<>(), new AccelerateInterpolator(), 300));
     }
 
     @Override

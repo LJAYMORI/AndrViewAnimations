@@ -27,8 +27,8 @@ public class AnimatorUtils {
 //        set.setInterpolator(new BounceInterpolator());
         set.setDuration(300);
         set.playTogether(
-                ObjectAnimator.ofFloat(view, "scaleX", 1f, 1.3f, 0.95f, 1f),
-                ObjectAnimator.ofFloat(view, "scaleY", 1f, 1.3f, 0.95f, 1f)
+                ObjectAnimator.ofFloat(view, SCALE_X, 1f, 1.3f, 0.95f, 1f),
+                ObjectAnimator.ofFloat(view, SCALE_Y, 1f, 1.3f, 0.95f, 1f)
         );
         set.start();
     }
